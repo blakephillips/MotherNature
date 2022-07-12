@@ -1,6 +1,6 @@
 # Mother Nature
 
-A remake of a game I made on the [pico-8](https://www.lexaloffle.com/pico-8.php) virtual console for a gamejam that should be playable here:
+A ***remake*** of a game I made on the [pico-8](https://www.lexaloffle.com/pico-8.php) virtual console for a gamejam that should be playable here:
 - https://blakers.itch.io/mother-nature
 - or here: https://www.lexaloffle.com/bbs/?pid=106404
 

@@ -15,5 +15,6 @@ public abstract class DrawableEntity {
     // All drawable entities must implement both a render and
     // update function
     public abstract void update(float delta);
+
     public abstract void render(SpriteBatch batch);
 }

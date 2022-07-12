@@ -9,18 +9,19 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.blakers.mothernature.KeyMapping;
 import com.blakers.mothernature.KeyboardInput;
+import com.blakers.mothernature.TileManager;
 
 import java.util.HashMap;
 
 import static java.lang.Math.abs;
 
 public class Player extends DrawableEntity {
-    private HashMap<EntityState, TextureRegion> playerImages = new HashMap<>();
-    private int playerSpeed = 200;
-    private double playerDrag = 0.8;
-    private EntityState state = EntityState.DOWN;
-    private Vector2 velocity;
-    private Array<DrawableEntity> entities;
+    HashMap<EntityState, TextureRegion> playerImages = new HashMap<>();
+    int playerSpeed = 200;
+    double playerDrag = 0.8;
+    EntityState state = EntityState.DOWN;
+    final Vector2 velocity;
+    Array<DrawableEntity> entities;
 
     public Player(Array<DrawableEntity> entities, int x, int y) {
 
@@ -35,19 +36,10 @@ public class Player extends DrawableEntity {
 
         velocity = new Vector2(0, 0);
 
-        TextureRegion region = new TextureRegion(
-                new Texture(
-                        Gdx.files.internal("spritesheet/mothernature_sprites.png")
-                )
-        );
-        TextureRegion[][] split = region.split(8, 8);
-        TextureRegion[][] splitMirrored = region.split(8, 8);
-        splitMirrored[0][1].flip(true, false);
-
-        playerImages.put(EntityState.UP, split[0][3]);
-        playerImages.put(EntityState.DOWN, split[0][2]);
-        playerImages.put(EntityState.RIGHT, split[0][1]);
-        playerImages.put(EntityState.LEFT, splitMirrored[0][1]);
+        playerImages.put(EntityState.UP, TileManager.GetTextureFromTilemap(0, 3));
+        playerImages.put(EntityState.DOWN, TileManager.GetTextureFromTilemap(0, 2));
+        playerImages.put(EntityState.RIGHT, TileManager.GetTextureFromTilemap(0, 1));
+        playerImages.put(EntityState.LEFT, TileManager.GetTextureFromTilemap(0, 1, true));
     }
 
     @Override

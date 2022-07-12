@@ -8,7 +8,5 @@ The original pico-8 game is lacking in quite a few features, and quality of life
 
 This project is built on the [libGDX](https://libgdx.com/) game framework.
 
----
-
 ## Building and Running
 Follow [this processs](https://libgdx.com/wiki/start/import-and-running) to get the project running. 

@@ -8,18 +8,31 @@ import com.blakers.mothernature.TileManager;
 import com.blakers.mothernature.entities.DrawableEntity;
 
 public class Projectile extends DrawableEntity implements Pool.Poolable {
-    private final TextureRegion bulletTexture;
+    TextureRegion bulletTexture;
+    int damage;
+    public boolean alive;
 
-    public Projectile(int x, int y) {
-        this(x, y, TileManager.GetTextureFromTilemap(2, 10));
+    public Projectile() {
+        this(0, 0, TileManager.GetTextureFromTilemap(2, 10), 1);
     }
 
-    public Projectile(int x, int y, TextureRegion bulletTexture) {
+    public Projectile(int x, int y, TextureRegion bulletTexture, int damage) {
         pos = new Rectangle();
         pos.x = x;
         pos.y = y;
 
+
+
+        alive = false;
+
+        this.damage = damage;
         this.bulletTexture = bulletTexture;
+    }
+
+    public void init(int x, int y) {
+        pos.setPosition(x, y);
+        alive = true;
+
     }
 
     @Override
@@ -29,6 +42,7 @@ public class Projectile extends DrawableEntity implements Pool.Poolable {
 
     @Override
     public void update(float delta) {
+        if (!alive) return;
 
     }
 
@@ -37,7 +51,8 @@ public class Projectile extends DrawableEntity implements Pool.Poolable {
      */
     @Override
     public void reset() {
-
+        pos.x = 0;
+        pos.y = 0;
     }
 
 }
